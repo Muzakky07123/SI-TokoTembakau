@@ -26,8 +26,8 @@
                                 <th scope="row"><?= $i; ?></th>
                                 <td><?= $m['menu'];?></td>
                                 <td>
-                                    <a href="" class="badge bg-success">edit</a>
-                                    <a href="" class="badge bg-danger">delete</a>
+                                    <a href="" class="btn bg-success text-dark">edit</a>
+                                    <a href="<?= base_url(); ?>menu/delete/<?= $m['id']?>" class="btn bg-danger text-dark"onclick="return confirm('yakin?');">delete</a>
                                 </td>
                             </tr>
                             <?php $i++;?>

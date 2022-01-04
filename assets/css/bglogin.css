@@ -1,5 +1,17 @@
 .bglogin {
-    background-image: url('../img/logo/logo.jpeg');
-    background-position: center;
-    background-size: cover;
+	background-image: url("../img/logo/logo.jpeg");
+	background-position: center;
+	background-size: cover;
+}
+
+.modal-body button {
+	cursor: pointer;
+	border: 2px solid #e74c3c;
+	border-radius: 1em;
+}
+
+.modal-body,
+.button:hover {
+	color: rgb(160, 32, 32);
+	outline: 0;
 }

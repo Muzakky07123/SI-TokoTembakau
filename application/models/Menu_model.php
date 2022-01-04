@@ -11,4 +11,16 @@ class Menu_model extends CI_Model
                 ON `user_sub_menu`.`menu_id` = `user_menu`.`id`";
         return $this->db->query($query)->result_array();
     }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user_menu');
+    }
+
+    public function DeleteSubMenu($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user_sub_menu');
+    }
 }

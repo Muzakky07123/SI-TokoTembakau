@@ -44,7 +44,7 @@ class User extends CI_Controller
             //cek gamber
             $upload_image = $_FILES['image']['name'];
             if ($upload_image) {
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['allowed_types'] = 'gif|jpg|jpeg|png';
                 $config['max_size']      = '2048';
                 $config['upload_path']   = './assets/img/profile/';
 
@@ -113,5 +113,82 @@ class User extends CI_Controller
         }
     }
 
+    public function keranjang()
+    {
+        $data['title'] = 'Keranjang';
+        $data['login'] = $this->db->get_where('login', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        $idUser = $data['login']['id'];
+        $query = "SELECT keranjang.id as id_keranjang,keranjang.jumlah,keranjang.total,keranjang.status, produk.* FROM keranjang 
+                  JOIN produk ON produk.id = keranjang.id_produk
+                  WHERE id_user = $idUser  AND status >= 1 ";
+        $data['produk'] = $this->db->query($query)->result_array();
+        $this->load->view('templates/dashboard_header',$data);
+        $this->load->view('templates/dashboard_sidebar',$data);
+        $this->load->view('templates/dashboard_topbar',$data);
+        $this->load->view('user/keranjang',$data);
+        $this->load->view('templates/dashboard_footer');
+    }
+
+    public function tambahkeranjang(){
+        $user = $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array();
+        $id = $this->input->get('idproduk');
+        $jumlah = $this->input->get('jumlah');
+        $title = $this->input->get('title');
+        $produk = $this->db->get_where('produk',['id'=>$id])->row_array();
+
+        if($produk['stok'] > 0){
+            if(($produk['stok'] - $jumlah)>=0){
+                $sisa = $produk['stok'] - $jumlah;
+                $total = $jumlah * $produk['harga'];
+                $data = [
+                    'jumlah' => $jumlah,
+                    'total' => $total,
+                    'id_user' => $user['id'],
+                    'id_produk' => $id,
+                    'status' => '1'
+                ];
+                // tambah data keranjang  
+                $this->db->insert('keranjang',$data);
+                // update stok
+                $this->db->set('stok',$sisa);
+                $this->db->where('id',$id);
+                $this->db->update('produk');
+                redirect(base_url('User/keranjang'),'refresh');
+            }else{
+                redirect(base_url('produk/index/').$title,'refresh');
+            }
+        }else{
+            redirect(base_url('produk/index/').$title,'refresh');
+        }
+    }
+
+    public function checkoutkeranjang(){
+        $id = $this->input->post('id');
+        $data = [
+            'status' => 2
+        ];
+        $this->db->where('id',$id);
+        $this->db->update('keranjang',$data);
+        redirect(base_url('User/keranjang'),'refresh');
+    }
+
+    public function history(){
+        $data['title'] = 'History';
+        $data['login'] = $this->db->get_where('login', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        $idUser = $data['login']['id'];
+        $query = "SELECT k.id as id_keranjang, k.jumlah,k.total, produk.*
+                  FROM keranjang k
+                  JOIN produk ON produk.id = k.id_produk
+                  WHERE k.status = 0 AND k.id_user = $idUser";
+        $data['history'] = $this->db->query($query)->result_array();
+        
+        $this->load->view('templates/dashboard_header',$data);
+        $this->load->view('templates/dashboard_sidebar',$data);
+        $this->load->view('templates/dashboard_topbar',$data);
+        $this->load->view('user/history',$data);
+        $this->load->view('templates/dashboard_footer');
+    }
 
 }

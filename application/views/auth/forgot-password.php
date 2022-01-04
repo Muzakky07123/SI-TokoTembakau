@@ -31,8 +31,8 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-lg-7">
-            <!-- <div class="col-xl-10 col-lg-12 col-md-9"> -->
+            <!-- <div class="col-lg-7"> -->
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0" style="background-color: #FFF;">
@@ -41,32 +41,26 @@
                         <div class="col-lg-6 d-none d-lg-block bglogin"></div>
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Lupa Password ?</h1>
                                     </div>
 
                                     <?= $this->session->flashdata('pesan');?>
 
-                                    <form class="user" method="POST" action="<?= base_url('auth');?>">
+                                    <form class="user" method="POST" action="<?= base_url('auth/forgotpassword');?>">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                 id="email" name="email" placeholder="Masukan Email" value="<?= set_value('email'); ?>">
                                                 <?= form_error('email', '<small class="text-danger pl-3">','</small>') ?>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="password" name="password" placeholder="Password">
-                                                <?= form_error('password', '<small class="text-danger pl-3">','</small>') ?>
-                                        </div>
-                                        <button type="submit" class="btn btn-user btn-block text-light"  style="background-color: #FA5A00;">Login</button>
+                                        <button type="submit" class="btn btn-user btn-block text-light"  style="background-color: #FA5A00;">
+                                        Reset Password
+                                        </button>
                                         <hr>
                                         
                                     </form>
-                                    
+                            
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/forgotpassword'); ?>">Lupa Password ?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url('auth/registration')?>">Buat Akun Baru!</a>
+                                        <a class="small" href="<?= base_url('auth')?>">Kembali ke Login</a>
                                     </div>
                                 </div>
                             </div>

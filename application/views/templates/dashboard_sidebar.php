@@ -48,7 +48,7 @@
         <?php endif; ?>
         <a class="nav-link pb-0" href="<?= base_url($sm['url']); ?>">
             <i class="<?= $sm['icon']; ?>"></i>
-            <span><?= $sm['title']; ?></span></a>
+            <span class="text-capitalize"><?= $sm['title']; ?></span></a>
 </li>
     <?php endforeach; ?>
     <hr class="sidebar-divider mt-3">
@@ -68,18 +68,18 @@
     <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
         data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Tembakau & Cengkeh</a>
-            <a class="collapse-item" href="#">Alat Linting</a>
-            <a class="collapse-item" href="#">Paper</a>
-            <a class="collapse-item" href="#">Filter</a>
-            <a class="collapse-item" href="#">Alat lainnya</a>
+            <a class="collapse-item" href="<?=base_url('Produk/index/tembakau')?>">Tembakau & Cengkeh</a>
+            <a class="collapse-item" href="<?=base_url('Produk/index/alatlinting')?>">Alat Linting</a>
+            <a class="collapse-item" href="<?=base_url('Produk/index/paper')?>">Paper</a>
+            <a class="collapse-item" href="<?=base_url('Produk/index/filter')?>">Filter</a>
+            <a class="collapse-item" href="<?=base_url('Produk/index/alatlainnya')?>">Alat lainnya</a>
         </div>
     </div>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="<?=base_url('User/history')?>">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>History</span></a>
 </li>

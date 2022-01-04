@@ -7,6 +7,7 @@ class Menu extends CI_Controller
         {
             parent::__construct();
             is_logged_in();
+            $this->load->model('Menu_model');
         }
 
     public function index()
@@ -69,5 +70,17 @@ class Menu extends CI_Controller
                     New Submenu Added!</div>');
                     redirect('menu/submenu');
         }
+    }
+
+    public function delete($id){
+        $this->Menu_model->delete($id);
+        $this->session->set_flashdata('flash','Dihapus');
+        redirect('menu');
+    }
+
+    public function DeleteSubMenu($id){
+        $this->Menu_model->DeleteSubMenu($id);
+        $this->session->set_flashdata('flash','Dihapus');
+        redirect('menu/submenu');
     }
 }
