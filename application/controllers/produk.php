@@ -22,8 +22,9 @@ class Produk extends CI_Controller
             'login' => $this->db->get_where('login', ['email' => $this->session->userdata('email')])->row_array(),
             'produk' => $this->db->get_where('produk',['jenis' => $jenis])->result_array()
         ];
+        // var_dump($data['produk']);die;
         $this->load->view('templates/dashboard_header',$data);
-        $this->load ->view('templates/dashboard_sidebar',$data);
+        $this->load->view('templates/dashboard_sidebar',$data);
         $this->load->view('templates/dashboard_topbar',$data);
         $this->load->view('produk/produk',$data);
         $this->load->view('templates/dashboard_footer');

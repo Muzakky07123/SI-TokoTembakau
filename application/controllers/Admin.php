@@ -17,7 +17,7 @@ class Admin extends CI_Controller
         $data['login'] = $this->db->get_where('login', ['email' => 
         $this->session->userdata('email')])->row_array();
         // menghitung pendapatan total
-        $queryPendapatan = "SELECT SUM(keranjang.total) as total FROM keranjang";
+        $queryPendapatan = "SELECT SUM(keranjang.total) as total FROM keranjang WHERE status=0";
         $data['pendapatan'] = $this->db->query($queryPendapatan)->row_array();
         // menghitung produk yang ada
         $data['total_produk'] = $this->db->count_all('produk');
@@ -199,7 +199,7 @@ class Admin extends CI_Controller
             $idProduk = $this->input->post('id');    
             $proses = $this->input->post('proses');    
             $config['upload_path'] = './assets/img/produk';
-            $config['allowed_types'] = 'jpg|png';
+            $config['allowed_types'] = 'jpg|png|jpeg';
             $this->load->library('upload', $config); 
                 // pengujian upload gambar berhasil atau gagal
                  if(!$this->upload->do_upload('image')){

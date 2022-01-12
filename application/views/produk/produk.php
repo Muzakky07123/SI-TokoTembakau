@@ -2,18 +2,19 @@
 	<div class="container-fluid">
     <!-- Page Heading -->
 		<h1 class="h3 mb-4 text-gray-800 "><?=$title?></h1>
+		<?=$this->session->flashdata('pesan');?>
 			<div>
 				<div class="row">
 					<?php foreach($produk as $row) : ?>
-					<div class="col-3">
+					<div class="col-4">
 					<div class="card" style="width: 18rem;">
-						<img src="<?=base_url('assets/img/produk/').$row['image']?>" class="card-img-top">
+						<img src="<?=base_url('assets/img/produk/').$row['image']?>" class="card-img-top" >
 						<div class="card-body">
 							<h5 class="card-title font-weight-bold fs-3 text-capitalize text-dark"><?=$row['nama']?></h5>
 							<h5 class="text-danger mb-3">Rp.<?=$row['harga']?></h5>
-							<a href="" data-toggle="modal" data-title="<?=$title?>" data-id="<?=$row['id']?>" data-target="#staticBackdrop"  
+							<a href="" id="tombol-beli" data-toggle="modal" data-title="<?=$title?>" data-id="<?=$row['id']?>" data-target="#staticBackdrop"  
 							 data-nama="<?=$row['nama']?>" data-harga="<?=$row['harga']?>" data-stok="<?=$row['stok']?>"
-							 data-deskripsi="<?=$row['deskripsi']?>" class="btn btn-primary buy">Buy</a>
+							 data-deskripsi="<?=$row['deskripsi']?>" data-gambar="<?=$row['image']?>" class="btn btn-primary buy">Buy</a>
 						</div>
 						</div>
 					</div>
@@ -41,12 +42,12 @@
 							<div class="container ">
 								<div class="row d-flex">
 									<div class="col-4">
-												<!-- <img src="" style="width: 13rem;"> -->
+												<img src="" id="image" style="width: 13rem;">
 									</div>
 									<div class="col-8">
-												<h2 id="nama" class=" text-capitalize text-dark font-weight-bold"><?=$row['nama']?></h2>
-												<p><?=$row['deskripsi']?></p>
-												<h5 id="harga" class="text-danger">Rp.<?=$row['harga']?></h5>
+												<h2 id="nama" class=" text-capitalize text-dark font-weight-bold"></h2>
+												<p id="deskripsi"></p>
+												<h5 id="harga" class="text-danger"></h5>
 												<div class="row">
 													<div class="col">
 														<input id="total" class=" text-center" type="number" name="jumlah" value="1" style="width: 60px;" >

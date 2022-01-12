@@ -156,9 +156,11 @@ class User extends CI_Controller
                 $this->db->update('produk');
                 redirect(base_url('User/keranjang'),'refresh');
             }else{
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger  text-dark" role="alert">permintaan melebihi stok</div>');
                 redirect(base_url('produk/index/').$title,'refresh');
             }
         }else{
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger  text-dark" role="alert">Stok tidak ada</div>');
             redirect(base_url('produk/index/').$title,'refresh');
         }
     }

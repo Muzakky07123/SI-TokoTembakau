@@ -88,7 +88,9 @@
            let nama = $(this).data('nama');
            let harga = $(this).data('harga');
            let stok = $(this).data('stok');
-           let deskripsi = $(this).data('desktipsi');
+           let deskripsi = $(this).data('deskripsi');
+           let gambar = $(this).data('gambar');
+           console.log(gambar);
 
            $('#id').val(id);
            $('#title').val(title);
@@ -96,6 +98,7 @@
            $('#nama').text(nama);
            $('#harga').text('Rp.'+harga);
            $('#stok').text(stok);
+           document.getElementById("image").src = '<?=base_url('assets/img/produk/')?>'+gambar;
             
 
         });
@@ -141,6 +144,8 @@
             $('#deskripsi').val('');
             $('#proses').val(proses);
         });
+
+       
     </script>
 
     <script>

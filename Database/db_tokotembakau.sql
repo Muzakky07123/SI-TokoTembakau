@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2022 at 06:48 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Waktu pembuatan: 10 Jan 2022 pada 09.37
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keranjang`
+-- Struktur dari tabel `keranjang`
 --
 
 CREATE TABLE `keranjang` (
@@ -37,12 +37,11 @@ CREATE TABLE `keranjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `keranjang`
+-- Dumping data untuk tabel `keranjang`
 --
 
 INSERT INTO `keranjang` (`id`, `jumlah`, `total`, `id_user`, `id_produk`, `status`) VALUES
 (1, 1, 3000, '19', 6, 0),
-(2, 1, 3000, '19', 6, 0),
 (3, 8, 3000, '19', 6, 0),
 (4, 2, 46000, '19', 1, 0),
 (5, 3, 15000, '19', 3, 0),
@@ -56,12 +55,13 @@ INSERT INTO `keranjang` (`id`, `jumlah`, `total`, `id_user`, `id_produk`, `statu
 (13, 1, 5000, '19', 3, 0),
 (14, 1, 20000, '17', 2, 0),
 (15, 1, 20000, '17', 2, 1),
-(16, 1, 24000, '17', 1, 1);
+(16, 1, 24000, '17', 1, 1),
+(17, 1, 5000, '31', 14, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -78,7 +78,7 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`id`, `nama`, `alamat`, `nohp`, `email`, `password`, `role_id`, `is_active`, `date_created`, `image`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `login` (`id`, `nama`, `alamat`, `nohp`, `email`, `password`, `role_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
@@ -104,27 +104,27 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
 INSERT INTO `produk` (`id`, `nama`, `deskripsi`, `stok`, `harga`, `jenis`, `image`) VALUES
-(1, 'tembakau surya', 'per 100 gram', 9, 24000, 'tembakau', 'surya.jpg'),
-(2, 'Tembakau Dji Sam Soe', 'per 100 gram', 10, 23000, 'tembakau', 'Dji_Sam_Soe.jpg'),
-(3, 'alat linting kecil', 'alat linting kecil', 7, 5000, 'alatlinting', 'alatkecil.jpg'),
-(4, 'kertas samsu', 'paper samsu kw', 15, 1000, 'paper', 'kertas236.jpg'),
-(5, 'filter Reguler', 'filter rokok ukuran sedang', 8, 5000, 'filter', 'filterreg.jpg'),
-(6, 'lem kecil', 'lem ukuran kecil', 15, 3000, 'alatlainnya', 'lemkecil.jpg'),
-(12, 'ketas delima', 'paper roko', 24, 1000, 'paper', 'kertas_delima.jpg'),
-(13, 'Alat linting sedang', 'alat linting besar', 5, 15000, 'alatlinting', 'alatsedang.jpg'),
-(14, 'Filter Magnum', 'filter rokok ukuran besar', 10, 5000, 'filter', 'filtermagnum.jpg'),
-(15, 'lem besar', 'lem ukuran besar', 10, 5000, 'alatlainnya', 'lembesar.jpg'),
-(16, 'tembakau mild', 'tembakau aroma mild', 10, 20000, 'tembakau', 'tembakaumild1.jpg'),
-(17, 'tembakau malioboro', 'per 100 gram', 10, 23000, 'tembakau', 'tembakaumalioboro.jpg');
+(1, 'tembakau surya', 'per 100 gram', 9, 24000, 'tembakau', 'TembakauSurya.jpg'),
+(2, 'Tembakau Dji Sam Soe', 'per 100 gram', 10, 23000, 'tembakau', 'TembakauDjiSamSoe.jpg'),
+(3, 'alat linting kecil', 'alat linting kecil', 5, 5000, 'alatlinting', 'AlatKecil.jpg'),
+(4, 'Paper 236', 'paper samsu kw', 15, 1000, 'paper', 'Paper236.jpg'),
+(5, 'filter Reguler', 'filter rokok ukuran sedang', 8, 5000, 'filter', 'FilterReguler.jpg'),
+(6, 'lem kecil', 'lem ukuran kecil', 15, 3000, 'alatlainnya', 'LemKecil.jpg'),
+(12, 'paper mbako.com', 'paper roko', 24, 1000, 'paper', 'PaperMbako_com.jpg'),
+(13, 'Alat linting sedang', 'alat linting sedang', 5, 15000, 'alatlinting', 'AlatSedang.jpg'),
+(14, 'Filter Magnum', 'filter rokok ukuran besar', 1, 5000, 'filter', 'FilterMagnum.jpg'),
+(15, 'lem besar', 'lem ukuran besar', 10, 5000, 'alatlainnya', 'LemBesar.jpg'),
+(16, 'tembakau mild', 'tembakau aroma mild', 10, 20000, 'tembakau', 'TembakauMild.jpg'),
+(17, 'tembakau malioboro', 'per 100 gram', 10, 23000, 'tembakau', 'TembakauMalioboro.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_akses_menu`
+-- Struktur dari tabel `user_akses_menu`
 --
 
 CREATE TABLE `user_akses_menu` (
@@ -134,7 +134,7 @@ CREATE TABLE `user_akses_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_akses_menu`
+-- Dumping data untuk tabel `user_akses_menu`
 --
 
 INSERT INTO `user_akses_menu` (`id`, `role_id`, `menu_id`) VALUES
@@ -147,7 +147,7 @@ INSERT INTO `user_akses_menu` (`id`, `role_id`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_menu`
+-- Struktur dari tabel `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -156,7 +156,7 @@ CREATE TABLE `user_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_menu`
+-- Dumping data untuk tabel `user_menu`
 --
 
 INSERT INTO `user_menu` (`id`, `menu`) VALUES
@@ -167,7 +167,7 @@ INSERT INTO `user_menu` (`id`, `menu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_role`
+-- Struktur dari tabel `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -176,7 +176,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_role`
+-- Dumping data untuk tabel `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
@@ -187,7 +187,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_sub_menu`
+-- Struktur dari tabel `user_sub_menu`
 --
 
 CREATE TABLE `user_sub_menu` (
@@ -200,7 +200,7 @@ CREATE TABLE `user_sub_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_sub_menu`
+-- Dumping data untuk tabel `user_sub_menu`
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
@@ -219,7 +219,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_token`
+-- Struktur dari tabel `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -230,7 +230,7 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user_token`
+-- Dumping data untuk tabel `user_token`
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
@@ -247,101 +247,101 @@ INSERT INTO `user_token` (`id`, `email`, `token`, `date_created`) VALUES
 --
 
 --
--- Indexes for table `keranjang`
+-- Indeks untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `login`
+-- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_akses_menu`
+-- Indeks untuk tabel `user_akses_menu`
 --
 ALTER TABLE `user_akses_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_menu`
+-- Indeks untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_sub_menu`
+-- Indeks untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user_token`
+-- Indeks untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `keranjang`
+-- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `login`
+-- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `user_akses_menu`
+-- AUTO_INCREMENT untuk tabel `user_akses_menu`
 --
 ALTER TABLE `user_akses_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user_menu`
+-- AUTO_INCREMENT untuk tabel `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `user_sub_menu`
+-- AUTO_INCREMENT untuk tabel `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `user_token`
+-- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
