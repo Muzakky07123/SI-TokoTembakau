@@ -18,9 +18,9 @@
             <tr>
                 <td><?=$no?></td>
                 <td><?=$row['nama_user']?></td>
-                <td><?=$row['nama']?></td>
+                <td class="text-capitalize"><?=$row['nama']?></td>
                 <td><?=$row['jumlah']?></td>
-                <td><?=$row['harga']?></td>
+                <td><?=$row['total']?></td>
             </tr>
             <?php $no++;
           endforeach; ?>

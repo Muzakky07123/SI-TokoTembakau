@@ -17,9 +17,9 @@
             foreach($history as $row) :?>
             <tr>
                 <td><?=$no?></td>
-                <td><?=$row['nama']?></td>
+                <td class="text-capitalize"><?=$row['nama']?></td>
                 <td><?=$row['jumlah']?></td>
-                <td><?=$row['harga']?></td>
+                <td><?=$row['total']?></td>
                 <!-- <td class="text-center"> <button  data-toggle="modal" data-idkeranjang="<?=$row['id']?>" data-jumlah="<?=$row['jumlah']?>" 
                             data-idproduk="<?=$row['id_produk']?>" data-target="#staticBackdrop"  class="btn btn-primary verifikasi">Verifikasi</button></td> -->
             </tr>

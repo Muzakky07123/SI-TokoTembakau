@@ -137,7 +137,7 @@ class Admin extends CI_Controller
 
     public function keranjang()
     {
-        $data['title'] = 'Keranjang';
+        $data['title'] = 'Verifikasi Pesanan';
         $data['login'] = $this->db->get_where('login', ['email' => 
         $this->session->userdata('email')])->row_array();
         $query = "SELECT k.id as id_keranjang, k.jumlah,k.total, login.nama as nama_user, produk.*
@@ -171,7 +171,7 @@ class Admin extends CI_Controller
     }
 
     public function history(){
-        $data['title'] = 'History';
+        $data['title'] = 'History Penjualan';
         $data['login'] = $this->db->get_where('login', ['email' => 
         $this->session->userdata('email')])->row_array();
         $query = "SELECT k.id as id_keranjang, k.jumlah,k.total, login.nama as nama_user, produk.*

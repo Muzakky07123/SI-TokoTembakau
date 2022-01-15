@@ -21,7 +21,7 @@
                 <td><?=$row['nama_user']?></td>
                 <td><?=$row['nama']?></td>
                 <td><?=$row['jumlah']?></td>
-                <td><?=$row['harga']?></td>
+                <td><?=$row['total']?></td>
                 <td class="text-center"> <button  data-toggle="modal" data-idkeranjang="<?=$row['id_keranjang']?>" data-jumlah="<?=$row['jumlah']?>" 
                             data-idproduk="<?=$row['id']?>" data-target="#staticBackdrop"  class="btn btn-primary verifikasi">Verifikasi</button></td>
             </tr>

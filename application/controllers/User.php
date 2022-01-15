@@ -176,7 +176,7 @@ class User extends CI_Controller
     }
 
     public function history(){
-        $data['title'] = 'History';
+        $data['title'] = 'History Pembelian';
         $data['login'] = $this->db->get_where('login', ['email' => 
         $this->session->userdata('email')])->row_array();
         $idUser = $data['login']['id'];
